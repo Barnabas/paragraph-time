@@ -1,6 +1,8 @@
 <template>
-    <div class="paragraph-item">(item)</div>
+    <div class="paragraph-item">#{{ index }} - {{ paragraph.characters }} characters</div>
 </template>
 <script>
-  export default {}
+  export default {
+    props: ['paragraph', 'index']
+  }
 </script>

@@ -14,9 +14,10 @@
 
             </aside>
             <article class="two-third">
-                <paragraph-item></paragraph-item>
+                <paragraph-item v-for="(par, idx) in paragraphs" :paragraph="par" :index="idx"></paragraph-item>
             </article>
         </section>
+        <div id="target" contenteditable="true" @paste="handlePaste">(target)</div>
     </main>
 </template>
 <style>
@@ -33,14 +34,15 @@
 
 <script>
   import VueTimepicker from 'vue2-timepicker'
+  import Paragraphs from './Paragraphs'
 
+  const _paragraphs = new Paragraphs()
 
   export default {
     data() {
       return {
         start: {HH: '10', mm: '00'},
         duration: {H: '1', mm: '00'},
-        inputText: '',
         paragraphs: []
       }
     },
@@ -58,7 +60,14 @@
         return (iHour * 60) + iMin
       },
       recalc(){
-
+        this.paragraphs = _paragraphs.calculate(this.startDate(), this.durationMin())
+      },
+      handlePaste(e){
+        e.stopPropagation()
+        e.preventDefault()
+        const pastedData = e.clipboardData.getData('Text');
+        _paragraphs.parse(pastedData)
+        this.recalc()
       }
     },
     components: {VueTimepicker}
