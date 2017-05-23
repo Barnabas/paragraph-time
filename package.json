@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "bootstrap-vue": "^0.16.1",
+    "picnic": "^6.3.2",
     "vue": "^2.2.1"
   },
   "devDependencies": {
