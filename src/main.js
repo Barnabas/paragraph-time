@@ -3,7 +3,6 @@ import App from './App.vue'
 
 import 'picnic/picnic.min.css'
 import ParagraphItem from './components/ParagraphItem.vue'
-
 Vue.component('paragraph-item', ParagraphItem)
 
 new Vue({

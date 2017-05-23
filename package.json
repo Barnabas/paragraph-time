@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "picnic": "^6.3.2",
-    "vue": "^2.2.1"
+    "vue": "^2.2.1",
+    "vue2-timepicker": "beijaflor/vue2-timepicker"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
