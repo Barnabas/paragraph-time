@@ -1,5 +1,6 @@
-# Paragraph Time Calculator
+# paragraph-time
 
+> A Vue.js project
 
 ## Build Setup
 

@@ -1,14 +1,19 @@
 var path = require('path')
 var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    //publicPath: '/dist/',
+    publicPath: '/dist/',
     filename: 'build.js'
+  },
+  resolve: {
+    extensions: ['.js', '.vue'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'public': path.resolve(__dirname, './public')
+    }
   },
   module: {
     rules: [
@@ -16,7 +21,8 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {}
+          loaders: {
+          }
           // other vue-loader options go here
         }
       },
@@ -29,22 +35,18 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          objectAssign: 'Object.assign'
         }
       },
       {
         test: /\.css$/,
-        use: [
-          {loader: "style-loader"},
-          {loader: "css-loader"}
-        ]
+        loader: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.styl$/,
+        loader: ['style-loader', 'css-loader', 'stylus-loader']
       }
     ]
-  },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
   },
   devServer: {
     historyApiFallback: true,
@@ -53,16 +55,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map',
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      hash: isProduction
-    })
-  ]
+  devtool: '#eval-source-map'
 }
 
-if (isProduction) {
+if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([

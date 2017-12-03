@@ -1,32 +1,31 @@
 {
   "name": "paragraph-time",
-  "description": "Paragraph Time Calculator",
-  "version": "0.1.0",
+  "description": "A Vue.js project",
+  "version": "1.0.0",
   "author": "Barnabas Kendall <barnabas.kendall@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "deploy": "gh-pages -d dist"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "picnic": "^6.3.2",
-    "vue": "^2.2.1",
-    "vue2-timepicker": "beijaflor/vue2-timepicker"
+    "vue": "^2.5.3",
+    "vuetify": "^0.17.3"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-latest": "^6.0.0",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.28.1",
-    "file-loader": "^0.9.0",
-    "gh-pages": "^1.0.0",
-    "html-webpack-plugin": "^2.28.0",
-    "style-loader": "^0.17.0",
-    "vue-loader": "^11.1.4",
-    "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.5.3",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   }
 }

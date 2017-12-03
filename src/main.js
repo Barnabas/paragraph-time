@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.css'
 
-import 'picnic/picnic.min.css'
-import ParagraphItem from './components/ParagraphItem.vue'
-Vue.component('paragraph-item', ParagraphItem)
+Vue.use(Vuetify)
 
 new Vue({
   el: '#app',
