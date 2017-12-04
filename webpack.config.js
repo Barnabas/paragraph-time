@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    // publicPath: '/dist/',
     filename: 'build.js'
   },
   resolve: {
@@ -60,7 +60,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
-      hash: isProduction
+      hash: isProduction,
+      inject: true
     })
   ]
 }
