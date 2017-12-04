@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "luxon": "^0.2.5",
     "vue": "^2.5.3",
     "vuetify": "^0.17.3"
   },
