@@ -45,14 +45,14 @@
 <script>
   import {DateTime, Duration} from 'luxon'
 
-  const TIME_FORMAT = 'h:mma'
+  const TIME_FORMAT = 'HH:mm'
   let key = 0
 
   export default {
     data() {
       return {
-        startString: "10:00am",
-        endString: "11:00am",
+        startString: "10:00",
+        endString: "11:00",
         introMin: 0,
         conclusionMin: 0,
         first: 1,
@@ -70,10 +70,10 @@
     },
     computed: {
       startTime() {
-        return DateTime.fromString(this.startString, TIME_FORMAT)
+        return DateTime.fromFormat(this.startString, TIME_FORMAT)
       },
       endTime() {
-        return DateTime.fromString(this.endString, TIME_FORMAT)
+        return DateTime.fromFormat(this.endString, TIME_FORMAT)
       },
       durationMin() {
         return Math.abs(this.endTime.diff(this.startTime).as('minutes'))

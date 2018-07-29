@@ -1,14 +1,13 @@
+import '@babel/polyfill'
 import Vue from 'vue'
+import './plugins/vuetify'
 import App from './App.vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.css'
 
-Vue.use(Vuetify)
+Vue.config.productionTip = false
 
 Vue.component('pt-time-menu', () => import('./TimeMenu.vue'))
 Vue.component('pt-paragraphs', () => import('./Paragraphs.vue'))
 
 new Vue({
-  el: '#app',
   render: h => h(App)
-})
+}).$mount('#app')
